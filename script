@@ -1,509 +1,187 @@
 local player = game.Players.LocalPlayer
 
-
-
 if game.PlaceId == 6678877691 then
-
-
 	warn("L O A D I N G")
-
-
 	
-
-
 	warn("S C R I P T M A D E B Y K I L E N")
-
-
 	wait(1)
-
-
 	print("enjoy this fun")
-
-
-else
-
-
-	player:Kick("Hello. This is ZO script, so you executed this script not at the ZO")
-
-
+--else
+	--player:Kick("Hello. This is ZO script, so you executed this script not at the ZO")
 end
-
-
 
 local espenabled = false
-
-
 local uis = game:GetService("UserInputService")
-
-
 local theme = Color3.new(0.356863, 1, 0.345098)
-
-
 local buttontheme = Color3.new(0.101961, 0.101961, 0.101961)
-
-
 local font = Enum.Font.Code
-
-
 local espcolortheme = Color3.new(0.407843, 0.407843, 0.407843)
 
-
-
 function generaterandomstring(length:number)
-
-
 local n = {}
-
-
 for i = 1,length do
-
-
 n[i] = string.char(math.random(1,136))
-
-
 end
-
-
 return table.concat(n)
-
-
 end
-
-
 
 
 function addesp(char:Model)
-
-
 	if char then
-
-
 		if char:FindFirstChild("Humanoid") then
-
-
 			if char.Name ~= player.Name then
-
-
 			print("-- Zo script output type: Instance add -- ")
-
-
 			print("Adding esp to "..char.Name)
-
-
 				
-
-
 			
-
-
 			
-
-
 			local adornment = Instance.new("BoxHandleAdornment")
-
-
 			adornment.Color3 = espcolortheme
-
-
 			adornment.AlwaysOnTop = true
-
-
 			adornment.Name = " "..generaterandomstring(math.random(50,100)).." "
-
-
 			adornment.Size = Vector3.new("4.7", "4.7", "2")
-
-
 			adornment.Transparency = 0.5
-
-
 			adornment.Adornee = char
-
-
 			adornment.Parent = char
-
-
 			
-
-
 			local name = Instance.new("BillboardGui")
-
-
 			name.Name = " "..generaterandomstring(math.random(50,100)).." "
-
-
 			name.AlwaysOnTop = true
-
-
 			name.ResetOnSpawn = false
-
-
 			name.Size = UDim2.new(0,200,0,45)
-
-
 			name.Adornee = char:FindFirstChild("Head")
-
-
 			name.Parent = char:FindFirstChild("Head")
-
-
 			
-
-
 			--local label = Instance.new("TextLabel")
-
-
 			--label.Name = " "..generaterandomstring(math.random(50,100)).." "
-
-
 			--label.Font = font
-
-
 			--label.TextColor3 = espcolortheme
-
-
 			--label.Text = char.Name
-
-
 			--label.Size = UDim2.new(0,200,0,40)
-
-
 			--label.Position = UDim2.new(0,0,0,-5)
-
-
 			--label.Parent = name
-
-
 			--label.BackgroundTransparency = 1
-
-
 			--label.TextScaled = true
-
-
 				
-
-
 		
-
-
 			
-
-
 				
-
-
 			print("Added!")
-
-
 			print("-- Zo script output --")
-
-
 			end
-
-
 		end
-
-
 	end
-
-
 end
 
 
-
-
 game.Players.PlayerAdded:Connect(function(p)
-
-
 	if espenabled == true then
-
-
 		addesp(p.Character or p.CharacterAdded:Wait())
-
-
 	end
-
-
 end)
-
-
 
 local gui = Instance.new("ScreenGui")
 
-
-
 uis.InputBegan:Connect(function(i, gPE)
-
-
 	if i.KeyCode == Enum.KeyCode.RightShift then
-
-
 		if gui.Enabled == true then
-
-
 			gui.Enabled = false
-
-
 		elseif gui.Enabled == false then
-
-
 			gui.Enabled = true
-
-
 		end
-
-
 	end
-
-
 end)
-
-
 
 
 gui.ResetOnSpawn = false
 
-
-
 script.Name = generaterandomstring(math.random(100,200))
-
-
 gui.Name = generaterandomstring(math.random(50,100))
-
-
 gui.Parent = player.PlayerGui -- ! May be dangeorus, when parent set to "PlayerGui" ! --
 
 
-
-
 local main = Instance.new("Frame")
-
-
 main.Name = generaterandomstring(math.random(50,100))
-
-
 local visuals = Instance.new("Frame")
-
-
 visuals.Name = generaterandomstring(math.random(50,100))
 
-
-
 local maincatalog = Instance.new("Frame")
-
-
 maincatalog.Parent = main
-
-
 maincatalog.Name = generaterandomstring(50,100)
-
-
 local visualscatalog = Instance.new("Frame")
-
-
 visualscatalog.Name = generaterandomstring(50,100)
-
-
 visualscatalog.Parent = visuals
-
-
 
 -- Building gui --
 
-
-
 main.Parent = gui
-
-
 main.BackgroundColor3 = Color3.new(0.211765, 0.211765, 0.211765)
-
-
 main.Size = UDim2.new(0,109,0,31)
-
-
 main.Position = UDim2.new(0.047,0,0.031,0)
-
-
 local cornerto_main = Instance.new("UICorner")
-
-
 cornerto_main.Parent = main
 
-
-
 visuals.Parent = gui
-
-
 visuals.BackgroundColor3 = Color3.new(0.211765, 0.211765, 0.211765)
-
-
 visuals.Size = UDim2.new(0,109,0,31)
-
-
 visuals.Position = UDim2.new(0.3,0,0.031,0)
-
-
 local cornerto_visuals = Instance.new("UICorner")
-
-
 cornerto_visuals.Parent = visuals
 
-
-
 local label_01 = Instance.new("TextLabel")
-
-
 label_01.Parent = main
-
-
 label_01.Text = "Main"
-
-
 label_01.Font = font
-
-
 label_01.TextColor3 = theme
-
-
 label_01.BackgroundTransparency = 1
-
-
 label_01.TextScaled = true
-
-
 label_01.Size = UDim2.new(0,109,0,31)
-
-
 label_01.Position = UDim2.new(0,0,0,0)
 
-
-
 local label_02 = Instance.new("TextLabel")
-
-
 label_02.Parent = visuals
-
-
 label_02.Text = "Visuals"
-
-
 label_02.Font = font
-
-
 label_02.TextColor3 = theme
-
-
 label_02.BackgroundTransparency = 1
-
-
 label_02.TextScaled = true
-
-
 label_02.Size = UDim2.new(0,109,0,31)
-
-
 label_02.Position = UDim2.new(0,0,0,0)
 
-
-
 maincatalog.BackgroundColor3 = Color3.new(0.207843, 0.207843, 0.207843)
-
-
 maincatalog.Size = UDim2.new(0,100,0,230)
-
-
 maincatalog.Position = UDim2.new(0.037,0,1.323,0)
-
-
 local cornerto_maincatalog = Instance.new("UICorner")
-
-
 cornerto_maincatalog.Parent = maincatalog
 
-
-
 visualscatalog.BackgroundColor3 = Color3.new(0.207843, 0.207843, 0.207843)
-
-
 visualscatalog.Size = UDim2.new(0,100,0,230)
-
-
 visualscatalog.Position = UDim2.new(0.037,0,1.323,0)
-
-
 local cornerto_visualscatalog = Instance.new("UICorner")
-
-
 cornerto_visualscatalog.Parent = visualscatalog
 
-
-
 local button_01 = Instance.new("TextButton")
-
-
 button_01.TextColor3 = theme
-
-
 button_01.BackgroundColor3 = buttontheme
-
-
 button_01.Size = UDim2.new(0,100,0,19)
-
-
 button_01.Position = UDim2.new(0.037,0,1.581,0)
-
-
 button_01.Text = "Toggle ESP"
-
-
 button_01.TextScaled = true
-
-
 button_01.Font = font
-
-
 button_01.Parent = visuals
-
-
 local cornerto_button_01 = Instance.new("UICorner")
-
-
 cornerto_button_01.Parent = button_01
 
 
-
-
 -- Finish gui build --
-
-
 
 -- Callbacks --
 
 
 
-for i,v in pairs(game.Players:GetChildren()) do
-
-
-	print(v)
-
-
-end
-
-
-
 
 button_01.MouseButton1Down:Connect(function()
-
-
 	for i,v in pairs(game.Players:GetChildren()) do
-
-
-		addesp(v)
-
-
+		addesp(v.Character)
 	end
-
-
 end)
-
-
