@@ -6,8 +6,8 @@ if game.PlaceId == 6678877691 then
 	warn("S C R I P T M A D E B Y K I L E N")
 	wait(1)
 	print("enjoy this fun")
---else
-	--player:Kick("Hello. This is ZO script, so you executed this script not at the ZO")
+else
+	player:Kick("Hello. This is ZO script, so you executed this script not at the ZO")
 end
 
 local espenabled = false
@@ -97,7 +97,7 @@ gui.ResetOnSpawn = false
 
 script.Name = generaterandomstring(math.random(100,200))
 gui.Name = generaterandomstring(math.random(50,100))
-gui.Parent = player.PlayerGui -- ! May be dangeorus, when parent set to "PlayerGui" ! --
+gui.Parent = game.CoreGui -- ! May be dangeorus, when parent set to "PlayerGui" ! --
 
 
 local main = Instance.new("Frame")
@@ -181,7 +181,14 @@ cornerto_button_01.Parent = button_01
 
 
 button_01.MouseButton1Down:Connect(function()
-	for i,v in pairs(game.Players:GetChildren()) do
-		addesp(v.Character)
+	if espenabled == false then
+		for i,v in pairs(game.Players:GetChildren()) do
+			addesp(v.Character)
+			espenabled = true
+		end
+	elseif espenabled == true then
+		for i,v in pairs(game.Players:GetChildren()) do
+			v.Character:FindFirstChildOfClass("BoxHandleAdornment"):Remove()
+		end
 	end
 end)
