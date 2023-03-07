@@ -35,14 +35,12 @@ function addesp(char:Model)
 				
 			
 			
-			local adornment = Instance.new("BoxHandleAdornment")
-			adornment.Color3 = espcolortheme
-			adornment.AlwaysOnTop = true
-			adornment.Name = " "..generaterandomstring(math.random(50,100)).." "
-			adornment.Size = Vector3.new("4.7", "4.7", "2")
-			adornment.Transparency = 0.5
-			adornment.Adornee = char
-			adornment.Parent = char
+			local hl = Instance.new("Highlight")
+			hl.FillColor = Color3.new(0.466667, 1, 0.662745)
+			hl.FillTransparency = 0.2
+			hl.Name = " "..generaterandomstring(math.random(50,100)).." "
+			hl.OutlineColor = Color3.new(255,0,0)
+			hl.Parent = char
 			
 			local name = Instance.new("BillboardGui")
 			name.Name = " "..generaterandomstring(math.random(50,100)).." "
