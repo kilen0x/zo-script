@@ -170,13 +170,22 @@ button_01.Parent = visuals
 local cornerto_button_01 = Instance.new("UICorner")
 cornerto_button_01.Parent = button_01
 
+local button_02 = Instance.new("TextButton")
+button_02.TextColor3 = theme
+button_02.BackgroundColor3 = buttontheme
+button_02.Size = UDim2.new(0,100,0,19)
+button_02.Position = UDim2.new(0.037,0,1.581,0)
+button_02.Text = "Toggle KillAura"
+button_02.TextScaled = true
+button_02.Font = font
+button_02.Parent = main
+local cornerto_button_02 = Instance.new("UICorner")
+cornerto_button_02.Parent = button_02
+
 
 -- Finish gui build --
 
 -- Callbacks --
-
-
-
 
 button_01.MouseButton1Down:Connect(function()
 	if espenabled == false then
@@ -188,5 +197,44 @@ button_01.MouseButton1Down:Connect(function()
 		for i,v in pairs(game.Players:GetChildren()) do
 			v.Character:FindFirstChildOfClass("BoxHandleAdornment"):Remove()
 		end
+	end
+end)
+
+button_02.MouseButton1Down:Connect(function()
+	if killaura == false then
+		local part = Instance.new("Part")
+		part.Name = " "..generaterandomstring(math.random(50,100)).." "
+		local weld = Instance.new("WeldConstraint")
+		part.Size = Vector3.new(8.37,0.201,5.105)
+		part.Position = player.Character.Torso.Position
+		weld.Name = " "..generaterandomstring(math.random(50,100)).." "
+		part.CanCollide = false
+		weld.Parent = part
+		weld.Part0 = part
+		weld.Part1 = player.Character:FindFirstChild("Torso")
+		part.Parent = player.Character:FindFirstChild("Torso")
+		part.Transparency = 1
+		
+		killaura = true
+	elseif killaura == true then
+		if player.Character.Torso:FindFirstChildOfClass("Part") then
+			player.Character.Torso:FindFirstChildOfClass("Part"):Remove()
+			killaura = false
+		end
+	end
+end)
+
+
+
+character.Torso:FindFirstChildOfClass("Part").Touched:Connect(function(p)
+	if killaura == true then
+		if p ~= player.Character then
+			if not character:FindFirstChildOfClass("Tool") then
+				keypress(2)
+				keyrelease()
+			end
+			mouse1press()
+			mouse1release()
+		end		
 	end
 end)
